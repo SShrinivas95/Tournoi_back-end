@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class ProjetTournoiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProjetTournoiApplication.class, args);
+		SpringApplication.run(ProjetTournoiApplication.class, args );
 	}
 
 }
