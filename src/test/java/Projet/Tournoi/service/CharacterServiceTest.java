@@ -1,12 +1,14 @@
 package Projet.Tournoi.service;
 
 import Projet.Tournoi.entity.CharacterEntity;
+import Projet.Tournoi.exeception.CharacterNotFoundException;
 import Projet.Tournoi.repository.CharacterRepository;
 import Projet.Tournoi.utils.AppUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import Projet.Tournoi.dto.Character;
@@ -16,17 +18,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class CharacterServiceTest {
 
-    @Mock
+
+
     private CharacterRepoService characterRepoService ;
+    @Mock
+    private CharacterRepository characterRepooo ;
+
+    @InjectMocks
     private CharacterService characterService ;
 
     @BeforeEach
@@ -74,11 +81,32 @@ class CharacterServiceTest {
     @Test
     void deleteCharacter() {
         //given
-        Character test = new Character(30l,"bOD");
+        CharacterEntity test = new CharacterEntity(30l,"bOD");
+        when(characterRepooo.existsById(test.getId())).thenReturn(true);
         //when
-        characterService.deleteCharacter(test.getId());
+        characterRepoService.deleteById(test.getId());
         //then
-        verify(characterRepoService).deleteById(test.getId());
-
+        verify(characterRepooo).deleteById(test.getId());
     }
+
+    @Test
+    void deleteCharacterNotFound() {
+        //given
+        CharacterEntity test = new CharacterEntity(30l,"bOD");
+        when(characterRepooo.existsById(test.getId())).thenReturn(false);
+        //when ( verifier qu'il leve une exception)
+        CharacterNotFoundException characterNotFoundException =  assertThrows(
+                CharacterNotFoundException.class,
+                () -> characterRepoService.deleteById(test.getId())
+        );
+        //then
+        verify(characterRepooo, never()).deleteById(test.getId());
+
+        String expectedMessage = String.format("No Character was found with ID: %s", test.getId());
+        String actualMessage = characterNotFoundException.getMessage();
+        assert(actualMessage).contains(expectedMessage);
+    }
+
+
+
 }

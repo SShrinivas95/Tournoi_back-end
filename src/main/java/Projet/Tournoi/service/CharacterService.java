@@ -2,9 +2,11 @@ package Projet.Tournoi.service;
 
 import Projet.Tournoi.dto.Character;
 import Projet.Tournoi.entity.CharacterEntity;
+import Projet.Tournoi.exeception.CharacterNotFoundException;
 import Projet.Tournoi.repository.CharacterRepository;
 import Projet.Tournoi.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

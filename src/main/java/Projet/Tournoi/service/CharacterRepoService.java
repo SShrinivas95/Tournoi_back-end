@@ -9,6 +9,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CharacterRepoService {
@@ -26,12 +27,10 @@ public class CharacterRepoService {
     public List<CharacterEntity> findAll () {
         return characterRepo.findAll();
     }
-    public void deleteById (long id) {
-        try {
-            characterRepo.deleteById(id);
-        } catch (EmptyResultDataAccessException e) {
-            throw new CharacterNotFoundException("Aucun personnage trouvé avec l'ID : " + id);
-        }
+    public void deleteById(Long id) {
+        if(!characterRepo.existsById(id)) throw new CharacterNotFoundException(String.format("No Character was found with ID: %s", id)) ;
+        characterRepo.deleteById(id);
+
     }
 
 }
