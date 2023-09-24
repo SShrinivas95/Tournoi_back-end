@@ -31,7 +31,7 @@ public class CharacterControler {
         return ResponseEntity.ok().body("The character was send");
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteCharater(@PathVariable("id") Long id){
         characterService.deleteCharacter(id);
         return ResponseEntity.ok().body("Charater is deleted");

@@ -29,8 +29,9 @@ class CharacterServiceTest {
 
 
 
-    private CharacterRepoService characterRepoService ;
     @Mock
+    private CharacterRepoService characterRepoService ;
+
     private CharacterRepository characterRepooo ;
 
     @InjectMocks
@@ -76,6 +77,20 @@ class CharacterServiceTest {
                 .collect(Collectors.toList());
 
         assertNotEquals(aVerifier,nameVrai);
+    }
+
+    @Test
+    void deleteCharacterServiceMain() {
+        //given
+        Character character = new Character(5l,"Lobo");
+        //when
+        doNothing().when(characterRepoService).deleteById(character.getId());
+
+
+        //then
+        verify(characterRepoService).deleteById(character.getId());
+
+
     }
 
     @Test
