@@ -19,9 +19,10 @@ public class ProjetTournoiApplication {
 	@Bean
 	public CorsFilter corsFilter() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
-		corsConfiguration.addAllowedOrigin("http://localhost:4200"); // Autoriser toutes les origines (pour le développement, vous pouvez spécifier des origines spécifiques)
-		corsConfiguration.addAllowedMethod("*"); // Autoriser toutes les méthodes HTTP (GET, POST, PUT, DELETE, etc.)
-		corsConfiguration.addAllowedHeader("*"); // Autoriser tous les en-têtes HTTP
+		corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:4200")); // Autoriser toutes les origines (pour le développement, vous pouvez spécifier des origines spécifiques)
+		corsConfiguration.setAllowedHeaders(Arrays.asList("Origin","Access-Control-Allow-Origin","Content-Type"
+		,"Accept","Authorization","Origin , Accept","X-Requested-With"
+		,"Access-Control-Request-Method","Access-Control-Request-Headers")); // Autoriser tous les en-têtes HTTP
 		corsConfiguration.setAllowCredentials(true); // Autoriser l'envoi de cookies
 		corsConfiguration.setExposedHeaders(Arrays.asList("Origin", "Content-Type", "Accept", "Authorization",
 				"Access-Control-Allow-Origin", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
