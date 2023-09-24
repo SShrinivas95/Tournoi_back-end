@@ -34,6 +34,8 @@ public class CharacterService {
                 .stream()
                 .map(AppUtils.characterEntityTocharacter)
                 .collect(Collectors.toList());
+
+
     }
 
     public void deleteCharacter(Long id) {
