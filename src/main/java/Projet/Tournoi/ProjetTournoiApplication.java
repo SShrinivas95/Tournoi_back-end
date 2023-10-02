@@ -31,6 +31,7 @@ public class ProjetTournoiApplication {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", corsConfiguration); // Appliquer la configuration CORS à toutes les URL
 
+
 		return new CorsFilter(source);
 	}
 }
