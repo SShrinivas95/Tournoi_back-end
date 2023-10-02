@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface CharacterRepository extends JpaRepository<CharacterEntity,Long> {
 
-   CharacterEntity getCharacterEntityByNom (String name);
+
 
 }
 
