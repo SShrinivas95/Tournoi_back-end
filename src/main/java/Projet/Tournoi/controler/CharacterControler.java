@@ -36,6 +36,12 @@ public class CharacterControler {
         characterService.deleteCharacter(id);
         return ResponseEntity.ok().body("Charater is deleted");
     }
+    @PostMapping("/putAll")
+    public ResponseEntity saveAllCharacter(@RequestBody List <Character> character) {
+        characterService.addCharacterList(character);
+        return ResponseEntity.ok().body("The list was send");
+    }
+
 
 
 }

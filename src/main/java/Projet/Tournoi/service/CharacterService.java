@@ -5,6 +5,7 @@ import Projet.Tournoi.entity.CharacterEntity;
 import Projet.Tournoi.exeception.CharacterNotFoundException;
 import Projet.Tournoi.repository.CharacterRepository;
 import Projet.Tournoi.utils.AppUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class CharacterService {
 
@@ -23,7 +25,6 @@ public class CharacterService {
     }
 
     public Character addCharacter(Character character) {
-        if(Objects.isNull(character)) throw new RuntimeException("pas de character");
         characterRepoService.save(AppUtils.characterToCharacterEntity.apply(character));
         return character;
     }
@@ -34,6 +35,11 @@ public class CharacterService {
                 .stream()
                 .map(AppUtils.characterEntityTocharacter)
                 .collect(Collectors.toList());
+    }
+    public void addCharacterList (List<Character> liste) {
+        characterRepoService.saveList(liste.stream()
+                .map(AppUtils.characterToCharacterEntity::apply).collect(Collectors.toList()));
+        log.info("List was saved: {}",liste);
     }
 
     public void deleteCharacter(Long id) {
