@@ -39,6 +39,7 @@ public class CharacterControler {
     @PostMapping("/putAll")
     public ResponseEntity<List<Character>> saveAllCharacter(@RequestBody List <Character> character) {
         characterService.addCharacterList(character);
+
         return ResponseEntity.ok().body(character);
     }
 
