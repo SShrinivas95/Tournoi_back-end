@@ -12,14 +12,15 @@ import static java.util.Arrays.stream;
 
 class ProjetTournoiApplicationTests {
 
-    static boolean existeLettre (char letter, String test) {
+    static boolean existeLettre(char letter, String test) {
         boolean num = false;
         for (int i = 0; i < test.length(); i++) {
-            num = letter == test.charAt(i) ? true : false ;
-            if(num) break;
+            num = letter == test.charAt(i) ? true : false;
+            if (num) break;
         }
-        return num ;
+        return num;
     }
+
     public static void main(String[] args) {
 
 //		String test = "LoboGoss" ;
@@ -64,23 +65,43 @@ class ProjetTournoiApplicationTests {
 //        Collections.sort(liste);
 //        liste.forEach(System.out::println);
 //        liste.stream().filter(t -> t.startsWith("P")).forEach(System.out::println);
+//
+//        String nom = "test" ;
+//
+//
+//        System.out.println(existeLettre('e',"test"));
+//
+//        List <Integer> num = new ArrayList<>();
+//
+//        num.add(20);
+//        num.add(50);
+//        num.add(30);
+//        num.add(10);
+//        num.add(90);
+//
+//        Iterator<Integer> it = num.iterator();
+//        num.forEach(System.out::println);
+//        int test[] = new int[num.size()];
+//        for (int i = 0; i < num.size(); i++) {
+//            while (it.hasNext()) {
+//                test[i]=it.next();
+//                System.out.println(test[i]);
+//            }
+//        }
 
-        String nom = "test" ;
 
+        Map<Integer, String > mapCatalogue = new HashMap<>();
+        mapCatalogue.put(1,"Lobo");
+        mapCatalogue.put(2,"Taha");
+        mapCatalogue.put(3,"Sarane");
+        mapCatalogue.put(4,"Oyen");
 
-        System.out.println(existeLettre('e',"test"));
-
-
-
-
-
-
+        for(int i = 1 ; i<=mapCatalogue.size();i++){
+            if(mapCatalogue.get(i).equals("Oyen")) {
+                System.out.println(i + " Nom : " + mapCatalogue.get(i));
+            }
+        }
 
 
     }
-
-
-
-
-
 }

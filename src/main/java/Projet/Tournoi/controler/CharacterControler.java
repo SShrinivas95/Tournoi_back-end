@@ -28,18 +28,18 @@ public class CharacterControler {
     @PostMapping("/put")
     public ResponseEntity newCharatere(@RequestBody Character character) {
         characterService.addCharacter(character);
-        return ResponseEntity.ok().body("The character was send");
+        return ResponseEntity.ok().body(character);
     }
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteCharater(@PathVariable("id") Long id){
-        characterService.deleteCharacter(id);
+          characterService.deleteCharacter(id);
         return ResponseEntity.ok().body("Charater is deleted");
     }
     @PostMapping("/putAll")
-    public ResponseEntity saveAllCharacter(@RequestBody List <Character> character) {
+    public ResponseEntity<List<Character>> saveAllCharacter(@RequestBody List <Character> character) {
         characterService.addCharacterList(character);
-        return ResponseEntity.ok().body("The list was send");
+        return ResponseEntity.ok().body(character);
     }
 
 

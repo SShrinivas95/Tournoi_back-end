@@ -30,9 +30,7 @@ public class CharacterRepoService {
     }
 
     public List<CharacterEntity> findAll() {
-
-        return Optional.ofNullable(characterRepo.findAll())
-                .orElseThrow(() -> new CharacterNotFoundListException("The list is empty"));
+        return characterRepo.findAll();
     }
 
     public void deleteById(Long id) {
@@ -42,7 +40,6 @@ public class CharacterRepoService {
     }
 
     public void saveList(List<CharacterEntity> listCharacter) {
-        Optional.ofNullable(listCharacter).orElseThrow(()-> new CharacterNotFoundListException("The list is empty"));
         characterRepo.saveAll(listCharacter);
     }
 
