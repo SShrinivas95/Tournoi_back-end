@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static java.util.Arrays.copyOf;
 import static java.util.Arrays.stream;
 
 
@@ -89,19 +90,25 @@ class ProjetTournoiApplicationTests {
 //            }
 //        }
 
+        List <Integer> Test = new ArrayList<>();
+        Test.add(5);
+        Test.add(2);
+        Test.add(5);
+        Test.add(5);
+        Test.add(57);
 
-        Map<Integer, String > mapCatalogue = new HashMap<>();
-        mapCatalogue.put(1,"Lobo");
-        mapCatalogue.put(2,"Taha");
-        mapCatalogue.put(3,"Sarane");
-        mapCatalogue.put(4,"Oyen");
+        Collections.sort(Test);
+        System.out.println(Test);
 
-        for(int i = 1 ; i<=mapCatalogue.size();i++){
-            if(mapCatalogue.get(i).equals("Oyen")) {
-                System.out.println(i + " Nom : " + mapCatalogue.get(i));
-            }
+        Set<Integer> ma = new HashSet<>();
+
+        ma.addAll(Test);
+
+       System.out.println(ma);
+
+        String [] tab  = {"test","la","ah"};
+
+        System.out.println(tab[0]);
         }
 
-
     }
-}

@@ -59,7 +59,7 @@ class CharacterServiceTest {
                 , new CharacterEntity(1212L,"menteur")
                 , new CharacterEntity(848L,"etrepris"));
         //when
-        when(characterRepoService.findAll()).thenReturn(listTest);
+        //when(characterRepoService.findAll()).thenReturn(listTest);
         List<Character> characterList = characterService.showAllCharacter();
         //then
         verify(characterRepoService).findAll() ;

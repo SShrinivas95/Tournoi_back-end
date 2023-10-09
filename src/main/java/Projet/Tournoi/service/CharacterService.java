@@ -3,6 +3,7 @@ package Projet.Tournoi.service;
 import Projet.Tournoi.dto.Character;
 import Projet.Tournoi.entity.CharacterEntity;
 import Projet.Tournoi.exeception.CharacterNotFoundException;
+import Projet.Tournoi.exeception.CharacterNotFoundListException;
 import Projet.Tournoi.repository.CharacterRepository;
 import Projet.Tournoi.utils.AppUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 public class CharacterService {
 
     private final CharacterRepoService characterRepoService;
+
     @Autowired
     public CharacterService(CharacterRepoService characterRepoService) {
         this.characterRepoService = characterRepoService;
@@ -31,15 +34,17 @@ public class CharacterService {
 
     public List<Character> showAllCharacter() {
         List<CharacterEntity> characterEntityList = characterRepoService.findAll();
-        return characterEntityList
-                .stream()
+        if(characterEntityList.isEmpty()) throw new CharacterNotFoundListException("List Not Found");
+
+        return characterEntityList.stream()
                 .map(AppUtils.characterEntityTocharacter)
                 .collect(Collectors.toList());
     }
-    public void addCharacterList (List<Character> liste) {
+
+    public void addCharacterList(List<Character> liste) {
         characterRepoService.saveList(liste.stream()
                 .map(AppUtils.characterToCharacterEntity::apply).collect(Collectors.toList()));
-        log.info("List was saved: {}",liste);
+        log.info("List was saved: {}", liste);
     }
 
     public void deleteCharacter(Long id) {

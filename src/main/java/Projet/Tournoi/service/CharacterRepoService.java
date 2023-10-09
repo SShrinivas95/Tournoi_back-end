@@ -34,8 +34,7 @@ public class CharacterRepoService {
     }
 
     public void deleteById(Long id) {
-        if (!characterRepo.existsById(id))
-            throw new CharacterNotFoundException(String.format("No Character was found with ID: %s", id));
+
         characterRepo.deleteById(id);
     }
 
