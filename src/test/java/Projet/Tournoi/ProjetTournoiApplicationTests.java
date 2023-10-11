@@ -90,25 +90,49 @@ class ProjetTournoiApplicationTests {
 //            }
 //        }
 
-        List <Integer> Test = new ArrayList<>();
-        Test.add(5);
-        Test.add(2);
-        Test.add(5);
-        Test.add(5);
-        Test.add(57);
+//        List <Integer> Test = new ArrayList<>();
+//        Test.add(5);
+//        Test.add(2);
+//        Test.add(5);
+//        Test.add(5);
+//        Test.add(57);
+//
+//        Collections.sort(Test);
+//        System.out.println(Test);
+//
+//        Set<Integer> ma = new HashSet<>();
+//
+//        ma.addAll(Test);
+//
+//       System.out.println(ma);
+//
+//        String [] tab  = {"test","la","ah"};
+//
+//        System.out.println(tab[0]);
 
-        Collections.sort(Test);
-        System.out.println(Test);
+        String loboomie ="loboomtie";
+        String lobotomie= "lobotomie";
+        String azerty="azerty";
+        String ytreza="ytreza";
 
-        Set<Integer> ma = new HashSet<>();
 
-        ma.addAll(Test);
+        List<Character> l1 = new ArrayList<>();
+        List<Character> l2 = new ArrayList<>();
+        azerty.chars().forEach(lettre -> {
+            char l = (char) lettre;
+            l1.add(l);
+        });
+        ytreza.chars().forEach(lettre -> {
+            char l = (char) lettre;
+            l2.add(l);
+        });
 
-       System.out.println(ma);
+        l1.sort(Character::compareTo);
+        l2.sort(Character::compareTo);
+        System.out.println(l1.equals(l2));
 
-        String [] tab  = {"test","la","ah"};
-
-        System.out.println(tab[0]);
         }
+
+
 
     }

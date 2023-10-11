@@ -2,18 +2,13 @@ package Projet.Tournoi.service;
 
 import Projet.Tournoi.dto.Character;
 import Projet.Tournoi.entity.CharacterEntity;
-import Projet.Tournoi.exeception.CharacterNotFoundException;
 import Projet.Tournoi.exeception.CharacterNotFoundListException;
-import Projet.Tournoi.repository.CharacterRepository;
 import Projet.Tournoi.utils.AppUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
