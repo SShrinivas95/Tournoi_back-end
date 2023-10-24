@@ -1,5 +1,6 @@
 package Projet.Tournoi.service;
 
+import Projet.Tournoi.dto.Cellule;
 import Projet.Tournoi.dto.Character;
 import Projet.Tournoi.entity.CharacterEntity;
 import Projet.Tournoi.exeception.CharacterNotFoundListException;
@@ -9,17 +10,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
+
 
 @Slf4j
 @Service
 public class CharacterService {
 
     private final CharacterRepoService characterRepoService;
-
+    private final CelluleService celluleService;
     @Autowired
-    public CharacterService(CharacterRepoService characterRepoService) {
+    public CharacterService(CharacterRepoService characterRepoService, CelluleService celluleService) {
         this.characterRepoService = characterRepoService;
+        this.celluleService = celluleService;
     }
 
     public Character addCharacter(Character character) {
@@ -27,24 +29,20 @@ public class CharacterService {
         return character;
     }
 
-    public List<Character> showAllCharacter() {
-        List<CharacterEntity> characterEntityList = characterRepoService.findAll();
-        if(characterEntityList.isEmpty()) throw new CharacterNotFoundListException("List Not Found");
+    public List<Cellule> showAllCelluleWithCharacter() {
+        return celluleService.showAllCellule();
 
-        return characterEntityList.stream()
-                .map(AppUtils.characterEntityTocharacter)
-                .collect(Collectors.toList());
     }
 
-    public void addCharacterList(List<Character> liste) {
-        characterRepoService.saveList(liste.stream()
-                .map(AppUtils.characterToCharacterEntity::apply).collect(Collectors.toList()));
-        log.info("List was saved: {}", liste);
+    public void addCharacterInEachCellule(List<Character> liste) {
+        celluleService.distributionOfPlayer(liste);
+
     }
 
     public void deleteCharacter(Long id) {
         characterRepoService.deleteById(id);
     }
+
 
 
 }

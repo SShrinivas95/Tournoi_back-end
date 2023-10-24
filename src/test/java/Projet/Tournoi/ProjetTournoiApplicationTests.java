@@ -9,17 +9,19 @@ import java.util.stream.Collectors;
 
 import static java.util.Arrays.copyOf;
 import static java.util.Arrays.stream;
+import static org.junit.jupiter.params.shadow.com.univocity.parsers.common.ArgumentUtils.toCharArray;
 
 
 class ProjetTournoiApplicationTests {
 
-    static boolean existeLettre(char letter, String test) {
-        boolean num = false;
-        for (int i = 0; i < test.length(); i++) {
-            num = letter == test.charAt(i) ? true : false;
-            if (num) break;
-        }
-        return num;
+    static Boolean existeLettre(String letter, String test) {
+        char taber [] = letter.toCharArray();
+        char taberr [] = test.toCharArray();
+
+        Arrays.sort(taberr);
+        Arrays.sort(taber);
+
+        return Arrays.equals(taberr,taber);
     }
 
     public static void main(String[] args) {
@@ -35,14 +37,68 @@ class ProjetTournoiApplicationTests {
 //	System.out.println(res);
 //	}
 
-//        int tab[] = {1, 8, 6, 7, 3};
-//        List<Integer> nume = new ArrayList<>();
-//        for (int i = 0; i < tab.length; i++) {
-//            nume.add(tab[i]);
+//        int tabe[] = {-9, 8, -6, 7, -3};
+//        List<Integer> taaa = new ArrayList<>(Arrays.asList(-9, 8, -6, 7, -3));
+//        int proche= 100;
+//        int valeur = 0;
+//        for(int i =0;i<100;i++){
+//            proche--;
+//            if(taaa.contains(proche))
+//            {
+//                valeur=proche;
+//                break;
+//            }
 //        }
-////        nume = nume.stream().sorted().collect(Collectors.toList());
-//        nume = nume.stream().sorted(Integer::compare).collect(Collectors.toList());
-//		nume.forEach(System.out::println);
+//        System.out.println(valeur);
+
+        String j ="add";
+        String ii ="dda" ;
+        String iii = "daa";
+        int valeur = ii.length() -1 ;
+        boolean t = true;
+        for (int i =0 ; i<j.length(); i++){
+            if(j.charAt(i) != ii.charAt(valeur--)) {
+                t = false;
+                break;
+            }
+        }
+        System.out.println(t);
+
+
+//        int fixe = 471;
+//        int fixe2 =480;
+//        int centaine2 = fixe2/100;
+//        int dizaine2 = (fixe2/10)%10;
+//        int unit2 =fixe2 %10;
+//        int centaine = fixe/100;
+//        int dizaine = (fixe/10)%10;
+//        int unit =fixe %10;
+//
+//
+//        int valeur1 = fixe + centaine + dizaine + unit ;
+//        int valeur2 = fixe2 + centaine2 + dizaine2 + unit2 ;
+//
+//        while (valeur1 != valeur2){
+//
+//            valeur2 = valeur2 +centaine2 + dizaine2 + unit2;
+//            centaine2 = valeur1 /100 ;
+//            dizaine2 = (valeur1/10)%10;
+//            unit2 =valeur1 %10;
+//
+//            valeur1 = valeur1 +centaine + dizaine + unit;
+//            centaine = valeur1 /100 ;
+//            dizaine = (valeur1/10)%10;
+//            unit =valeur1 %10;
+//
+//        }
+
+
+        Scanner it = new Scanner(System.in);
+        System.out.println("Donnez la valeur :");
+        String nom = it.nextLine();
+
+        System.out.println(nom);
+
 //        int max = tab[2];
 //        for (int i = 0; i <tab.length; i++) {
 //            if (max < tab[i]) max = tab[i];
@@ -111,27 +167,37 @@ class ProjetTournoiApplicationTests {
 //        System.out.println(tab[0]);
 
         String loboomie ="loboomtie";
-        String lobotomie= "lobotomie";
+        String lobotomie= "lobotomi";
         String azerty="azerty";
         String ytreza="ytreza";
 
+        int tab []= new int [5];
+//        List<Character> l1 = new ArrayList<>();
+//        List<Character> l2 = new ArrayList<>();
+//        azerty.chars().forEach(lettre -> {
+//            char l = (char) lettre;
+//            l1.add(l);
+//        });
+//        ytreza.chars().forEach(lettre -> {
+//            char l = (char) lettre;
+//            l2.add(l);
+//        });
+//
+//        l1.sort(Character::compareTo);
+//        l2.sort(Character::compareTo);
+//        System.out.println(l1.equals(l2));
 
-        List<Character> l1 = new ArrayList<>();
-        List<Character> l2 = new ArrayList<>();
-        azerty.chars().forEach(lettre -> {
-            char l = (char) lettre;
-            l1.add(l);
-        });
-        ytreza.chars().forEach(lettre -> {
-            char l = (char) lettre;
-            l2.add(l);
-        });
 
-        l1.sort(Character::compareTo);
-        l2.sort(Character::compareTo);
-        System.out.println(l1.equals(l2));
+        char test [] = loboomie.toCharArray();
+        char test1 [] = lobotomie.toCharArray();
+
+        Arrays.sort(test);
+        Arrays.sort(test1);
+
+        System.out.println(Arrays.equals(test, test1));
 
         }
+
 
 
 
