@@ -51,20 +51,28 @@ class ProjetTournoiApplicationTests {
 //        }
 //        System.out.println(valeur);
 
-        String j ="add";
-        String ii ="dda" ;
-        String iii = "daa";
-        int valeur = ii.length() -1 ;
-        boolean t = true;
-        for (int i =0 ; i<j.length(); i++){
-            if(j.charAt(i) != ii.charAt(valeur--)) {
-                t = false;
-                break;
-            }
-        }
-        System.out.println(t);
-
-
+//        String j ="add";
+//        String ii ="dda" ;
+//        String iii = "daa";
+//        int valeir = 0;
+//        boolean a = true;
+//        for (int i =0 ; i<j.length(); i++){
+//            if(j.charAt(i) != ii.charAt(ii.length()-1-i)) {
+//                a = false;
+//                break;
+//            }
+//        }
+//       System.out.println(a);
+//
+//        String name = "Je suis tropppppp guez";
+//        String t [] = name.split(" ");
+//        String c = t[0];
+//        for(String x : t){
+//            if(x.length() > c.length()){
+//                c=x;
+//            }
+//        }
+//        System.out.println(a);
 //        int fixe = 471;
 //        int fixe2 =480;
 //        int centaine2 = fixe2/100;
@@ -93,11 +101,6 @@ class ProjetTournoiApplicationTests {
 //        }
 
 
-        Scanner it = new Scanner(System.in);
-        System.out.println("Donnez la valeur :");
-        String nom = it.nextLine();
-
-        System.out.println(nom);
 
 //        int max = tab[2];
 //        for (int i = 0; i <tab.length; i++) {
@@ -166,12 +169,12 @@ class ProjetTournoiApplicationTests {
 //
 //        System.out.println(tab[0]);
 
-        String loboomie ="loboomtie";
-        String lobotomie= "lobotomi";
-        String azerty="azerty";
-        String ytreza="ytreza";
-
-        int tab []= new int [5];
+//        String loboomie ="loboomtie";
+//        String lobotomie= "lobotomi";
+//        String azerty="azerty";
+//        String ytreza="ytreza";
+//
+//        int tab []= new int [5];
 //        List<Character> l1 = new ArrayList<>();
 //        List<Character> l2 = new ArrayList<>();
 //        azerty.chars().forEach(lettre -> {
@@ -186,19 +189,78 @@ class ProjetTournoiApplicationTests {
 //        l1.sort(Character::compareTo);
 //        l2.sort(Character::compareTo);
 //        System.out.println(l1.equals(l2));
+//        Scanner it = new Scanner(System.in);
+//        String nomm ="add";
+//        String nomInverse = "ddy";
+//        boolean tu = true;
+//        for(int i =0; nomm.length() > i;i++){
+//            if(nomm.charAt(i) != nomInverse.charAt(nomInverse.length() - 1 - i)){
+//               tu = false;
+//               break ;
+//            }
+//        }
+//        System.out.println(tu);
 
+//        Map<Character,Integer> Voyelle = new HashMap<>();
 
-        char test [] = loboomie.toCharArray();
-        char test1 [] = lobotomie.toCharArray();
+//        System.out.println("Donnez un nom");
+//        String value =it.nextLine().toLowerCase();
+//
+//        for(int i = 0; i< value.length();i++){
+//            if(Voyelle.containsKey(value.charAt(i))){
+//                Voyelle.put(value.charAt(i), Voyelle.get(value.charAt(i)) + 1);
+//            }else {
+//                Voyelle.put(value.charAt(i),1);
+//            }
+//        }
+//
+//            Voyelle.forEach((key,val)->System.out.println(key+ "="+ val));
+//
+//        String mot[]= {"bb","aeouiy","beau","mignon"};
+//        String message = "ae";
+//        List<String> listOfWord = new ArrayList<>();
+//
+//        for(String word : mot) {
+//            boolean contans = false;
+//            for (int i = 0; i < word.length(); i++) {
+//                for (int j = 0; j < message.length(); j++) {
+//                    if (word.charAt(i) == message.charAt(j)) {
+//                        contans = true;
+//                        break;
+//                    }
+//                }
+//                if (contans) {
+//                    listOfWord.add(word);
+//                    break;
+//
+//                }
+//            }
+//        }
+//        String aRendre[] = new String[listOfWord.size()];
+//        listOfWord.toArray(aRendre);
+//
+//
+//        for(String ma : aRendre){
+//            System.out.println(ma);
+//        }
+//
 
-        Arrays.sort(test);
-        Arrays.sort(test1);
-
-        System.out.println(Arrays.equals(test, test1));
-
+        List<Integer> test = new ArrayList<>();
+        int [] tab= {7,8,18,19,15,15,15,15,15,15,15,15,15,56,56,56,56,56,56,2};
+        for(int i = 0 ;i<tab.length;i++){
+            if(!test.contains(tab[i])){
+                test.add(tab[i]);
+            }
+        }
+        int tt[]=new int [test.size()];
+        for(int j=0;j<tt.length;j++){
+            tt[j]=test.get(j);
         }
 
-
-
+        for(int f : tt) {
+            System.out.println(f);
+        }
 
     }
+
+}

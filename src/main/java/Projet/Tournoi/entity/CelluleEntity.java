@@ -33,7 +33,7 @@ public class CelluleEntity {
             inverseJoinColumns = {
             @JoinColumn(name = "character_Id",referencedColumnName = "characterId")
             })
-    private Set<CharacterEntity> listOfCharacter= new HashSet<>();
+    private Set <CharacterEntity> listOfCharacter= new HashSet<>();
 
     @Column
     private Integer totalPeople;
